@@ -89,7 +89,7 @@ void SnakeClass::handleMove(SDL_Event &e)
                }
           }
      }
-     SDL_Delay(100);
+     SDL_Delay(20);
 }
 
 void SnakeClass::snakeMove(SDL_Rect &point)
@@ -130,6 +130,7 @@ void SnakeClass::snakeMove(SDL_Rect &point)
           snakeBody[snakeBodyLength - 1].x = snakeBody[snakeBodyLength - 2].x;
           snakeBody[snakeBodyLength - 1].y = snakeBody[snakeBodyLength - 2].y;
      }
+     SDL_Delay(50);
 }
 
 bool SnakeClass::gameOver()
