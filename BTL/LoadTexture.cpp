@@ -26,9 +26,9 @@ SDL_Texture *loadTexture(std::string path, SDL_Renderer *&gRenderer)
 
      return newTexture;
 }
-void renderTextTexture(SDL_Renderer *&gRenderer, const std::string &fontName,
-                       const std::string &content, const int &fontSize,
-                       const SDL_Color &fcolor, const int &x, const int &y)
+SDL_Rect renderTextTexture(SDL_Renderer *&gRenderer, const std::string &fontName,
+                           const std::string &content, const int &fontSize,
+                           const SDL_Color &fcolor, const int &x, const int &y)
 {
      TTF_Font *font = TTF_OpenFont(fontName.c_str(), fontSize);
 
@@ -47,4 +47,14 @@ void renderTextTexture(SDL_Renderer *&gRenderer, const std::string &fontName,
      font = NULL;
      SDL_DestroyTexture(texture);
      texture = NULL;
+
+     return desRect;
+}
+void render_scores(SDL_Renderer *&gRenderer, int BodyLength)
+{
+     stringstream ss;
+     ss.str("");
+     ss << "SCORE: " << BodyLength - 1;
+     SDL_Color gColor = {255, 255, 0};
+     renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 20, gColor, 30, 30);
 }

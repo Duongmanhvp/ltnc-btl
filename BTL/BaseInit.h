@@ -3,8 +3,8 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include <bits/stdc++.h>
 #include <SDL_ttf.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 

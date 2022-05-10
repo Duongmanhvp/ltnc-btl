@@ -9,11 +9,11 @@ class SnakeClass
 public:
      static const int step = 20;
      // tao phan dau
-     static const int snakeBodyLength = 2;
+     int snakeBodyLength = 1;
      SDL_Rect snakeHead;
 
      // tạo phần thân
-     static const int snakeMaxLength = SCREEN_HEIGHT * SCREEN_WIDTH / 20;
+     static const int snakeMaxLength = SCREEN_HEIGHT * SCREEN_WIDTH / 100;
      SDL_Rect snakeBody[snakeMaxLength];
 
      int direction;
