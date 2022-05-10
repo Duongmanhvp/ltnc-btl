@@ -1,10 +1,10 @@
 #ifndef Base_Init_h_
 #define Base_Init_h_
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 #include <bits/stdc++.h>
-#include <SDL2/SDL.ttf>
+#include <SDL_ttf.h>
 
 using namespace std;
 
