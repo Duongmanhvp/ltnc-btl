@@ -49,6 +49,10 @@ int main(int argc, char *argv[])
           snake.renderSnake(gRenderer);
           target.renderTarget(gRenderer);
 
+          // The TextColor
+          SDL_Color gColor = {255, 0, 0};
+          renderTextTexture(gRenderer, "VeraMoBd.ttf", "Your Scores: ", 30, gColor, 50, 50);
+
           SDL_RenderPresent(gRenderer);
      }
 
