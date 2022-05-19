@@ -9,15 +9,15 @@ bool outside(int x, int y, SDL_Rect a)
 
 bool QuitGame(SDL_Renderer* &gRenderer)
 {
-     SDL_Texture *Texture = loadTexture("images.png", gRenderer);
+     SDL_Texture *Texture = loadTexture("gameover.jpg", gRenderer);
      while (true)
      {
           SDL_RenderClear(gRenderer);
           SDL_Rect desrect = {0, 0, 800, 800};
           SDL_RenderCopy(gRenderer, Texture, NULL, &desrect);
           SDL_Color gColor = {255, 255, 0};
-          SDL_Rect playRect = renderTextTexture(gRenderer, "VeraMoBd.ttf", "PLAY AGAIN", 30, gColor, 330, 660);
-          SDL_Rect endRect = renderTextTexture(gRenderer, "VeraMoBd.ttf", "EXIT", 30, gColor, 380, 690);
+          SDL_Rect playRect = renderTextTexture(gRenderer, "VeraMoBd.ttf", "PLAY AGAIN", 50, gColor, 100, 430);
+          SDL_Rect endRect = renderTextTexture(gRenderer, "VeraMoBd.ttf", "EXIT", 50, gColor, 600, 430);
           SDL_Event e;
 
           if (SDL_PollEvent(&e) != 0)

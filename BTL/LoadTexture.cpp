@@ -56,5 +56,5 @@ void render_scores(SDL_Renderer *&gRenderer, int BodyLength)
      ss.str("");
      ss << "SCORE: " << BodyLength - 1;
      SDL_Color gColor = {255, 255, 0};
-     renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 20, gColor, 30, 30);
+     renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 20, gColor, 20, 6);
 }

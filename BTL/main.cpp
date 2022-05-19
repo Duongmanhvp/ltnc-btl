@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
             bool quit = false;
             long long loop = 0;
-            gTexture = loadTexture("snake.jpeg", gRenderer);
+            gTexture = loadTexture("image.png", gRenderer);
 
             while (!quit)
             {
