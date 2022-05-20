@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     {
         bool restart = true;
 
-        while(restart)
+        while (restart)
         {
             SnakeClass snake;
             Target target;
@@ -38,29 +38,34 @@ int main(int argc, char *argv[])
             {
                 loop++;
                 SDL_Event e;
-
-                for (int i = 0; i < SnakeClass().snakeBodyLength; i++)
-                {
-                    if (SnakeClass().snakeHead.x == SnakeClass().snakeBody[i].x && SnakeClass().snakeHead.y == SnakeClass().snakeBody[i].y)
+                /*
+                    for (int i = 0; i < SnakeClass().snakeBodyLength; i++)
                     {
-                        quit = true;
-                        break;
+                        if (SnakeClass().snakeHead.x == SnakeClass().snakeBody[i].x && SnakeClass().snakeHead.y == SnakeClass().snakeBody[i].y)
+                        {
+                            quit = true;
+                            break;
+                        }
                     }
-                }
+                    */
 
                 // Handle events on queue
                 while (SDL_PollEvent(&e) != 0)
                 {
                     // User requests quit
-                    if (e.type == SDL_QUIT || snake.gameOver() == true)
+                    if (e.type == SDL_QUIT)
                     {
                         quit = true;
                     }
                     snake.handleMove(e);
                 }
 
-                if (loop % 5 == 0)snake.snakeMove(target.point);
-
+                if (loop % 5 == 0)
+                {
+                    snake.snakeMove(target.point);
+                    if (snake.gameOver() == true)
+                        quit = true;
+                }
                 // Clear screen
                 SDL_SetRenderDrawColor(gRenderer, 0, 191, 255, 0);
                 SDL_RenderClear(gRenderer);
@@ -77,10 +82,10 @@ int main(int argc, char *argv[])
 
                 SDL_RenderPresent(gRenderer);
 
-                if(quit == true)
+                if (quit == true)
                 {
                     restart = QuitGame(gRenderer);
-                    //if(restart == 1)quit = false;
+                    // if(restart == 1)quit = false;
                 }
             }
         }

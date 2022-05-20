@@ -40,19 +40,10 @@ void SnakeClass::handleMove(SDL_Event &e)
 {
      if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
      {
-          if (direction == LEFT)
-          {
-               if (e.key.keysym.sym == SDLK_DOWN || e.key.keysym.sym == SDLK_s)
-               {
-                    direction = DOWN;
-               }
-               if (e.key.keysym.sym == SDLK_UP || e.key.keysym.sym == SDLK_w)
-               {
-                    direction = UP;
-               }
-          }
+          if (e.key.keysym.sym == SDLK_p)
+               waitUntilEnterPressed();
 
-          if (direction == RIGHT)
+          if (direction == RIGHT || direction == LEFT)
           {
 
                if (e.key.keysym.sym == SDLK_DOWN || e.key.keysym.sym == SDLK_s)
@@ -65,19 +56,7 @@ void SnakeClass::handleMove(SDL_Event &e)
                }
           }
 
-          if (direction == UP)
-          {
-               if (e.key.keysym.sym == SDLK_LEFT || e.key.keysym.sym == SDLK_a)
-               {
-                    direction = LEFT;
-               }
-               if (e.key.keysym.sym == SDLK_RIGHT || e.key.keysym.sym == SDLK_d)
-               {
-                    direction = RIGHT;
-               }
-          }
-
-          if (direction == DOWN)
+          if (direction == UP || direction == DOWN)
           {
                if (e.key.keysym.sym == SDLK_LEFT || e.key.keysym.sym == SDLK_a)
                {
@@ -89,7 +68,6 @@ void SnakeClass::handleMove(SDL_Event &e)
                }
           }
      }
-     SDL_Delay(0);
 }
 
 void SnakeClass::snakeMove(SDL_Rect &point)

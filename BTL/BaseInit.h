@@ -28,4 +28,6 @@ bool init(SDL_Window *&gWindow, SDL_Renderer *&gRenderer);
 
 void QuitSDL(SDL_Window *&gWindow, SDL_Renderer *&gRenderer);
 
+void waitUntilEnterPressed();
+
 #endif

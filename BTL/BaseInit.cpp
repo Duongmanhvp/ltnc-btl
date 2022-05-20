@@ -112,3 +112,18 @@ bool CheckVaCham(SDL_Rect &a, SDL_Rect &b)
     // If none of the sides from A are outside B
     return true;
 }
+void waitUntilEnterPressed()
+{
+    SDL_Event e;
+    while (true)
+    {
+        if (SDL_WaitEvent(&e) != 0)
+        {
+            if (e.type == SDL_QUIT)
+                return;
+            else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_RETURN)
+                return;
+        }
+        SDL_Delay(100);
+    }
+}
