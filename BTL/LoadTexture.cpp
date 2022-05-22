@@ -50,11 +50,16 @@ SDL_Rect renderTextTexture(SDL_Renderer *&gRenderer, const std::string &fontName
 
      return desRect;
 }
-void render_scores(SDL_Renderer *&gRenderer, int BodyLength)
+void render_scores(SDL_Renderer* &gRenderer, int BodyLength, bool gameOver)
 {
      stringstream ss;
      ss.str("");
      ss << "SCORE: " << BodyLength - 1;
      SDL_Color gColor = {255, 255, 0};
-     renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 20, gColor, 20, 6);
+     if(!gameOver)renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 20, gColor, 20, 6);
+     else
+     {
+         gColor = {255, 0, 0};
+         renderTextTexture(gRenderer, "VeraMoBd.ttf", ss.str().c_str(), 50, gColor, 250, 300);
+     }
 }

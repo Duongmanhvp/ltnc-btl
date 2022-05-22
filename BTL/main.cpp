@@ -64,10 +64,13 @@ int main(int argc, char *argv[])
                 {
                     snake.snakeMove(target.point);
                     if (snake.gameOver() == true)
-                        quit = true;
+                        {
+                            SDL_SetTextureAlphaMod(gTexture, 100);
+                            quit = true;
+                        }
                 }
                 // Clear screen
-                SDL_SetRenderDrawColor(gRenderer, 0, 191, 255, 0);
+                SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
                 SDL_RenderClear(gRenderer);
 
                 // The Image Background
@@ -78,7 +81,7 @@ int main(int argc, char *argv[])
                 target.renderTarget(gRenderer);
 
                 // The Scores
-                render_scores(gRenderer, snake.snakeBodyLength);
+                render_scores(gRenderer, snake.snakeBodyLength, snake.gameOver());
 
                 SDL_RenderPresent(gRenderer);
 

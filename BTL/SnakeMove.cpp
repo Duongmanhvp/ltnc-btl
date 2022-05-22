@@ -101,14 +101,17 @@ void SnakeClass::snakeMove(SDL_Rect &point)
 
      if (CheckVaCham(snakeHead, point) == true)
      {
+          Mix_Chunk *TargetChunk =  Mix_LoadWAV("target.mp3");
+          Mix_PlayChannel(-1, TargetChunk, 0);
+          TargetChunk = NULL;
           // chuyển point ra chỗ khác
-          point.x = 20 + rand() % 38 * 20;
-          point.y = 20 + rand() % 38 * 20;
+          point.x = 20 + rand() % 37 * 20;
+          point.y = 20 + rand() % 37 * 20;
           snakeBodyLength++;
           snakeBody[snakeBodyLength - 1].x = snakeBody[snakeBodyLength - 2].x;
           snakeBody[snakeBodyLength - 1].y = snakeBody[snakeBodyLength - 2].y;
      }
-     SDL_Delay(60);
+     SDL_Delay(50);
 }
 
 bool SnakeClass::gameOver()

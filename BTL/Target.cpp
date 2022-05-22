@@ -3,8 +3,8 @@
 Target::Target()
 {
      // tạo điểm ngẫu nhiên để ăn
-     point.x = 20 + rand() % 38 * 20;
-     point.y = 20 + rand() % 38 * 20;
+     point.x = 20 + rand() % 37 * 20;
+     point.y = 20 + rand() % 37 * 20;
      point.w = 20;
      point.h = 20;
 }
