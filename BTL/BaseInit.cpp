@@ -49,6 +49,12 @@ bool init(SDL_Window *&gWindow, SDL_Renderer *&gRenderer)
                     cout << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << endl;
                     success = false;
                 }
+
+                if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+                {
+                   cout << "SDL_mixer could not initialize! SDL_mixer Error: " << Mix_GetError() << endl;
+                    success = false;
+                }
             }
         }
     }
@@ -124,6 +130,6 @@ void waitUntilEnterPressed()
             else if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_RETURN)
                 return;
         }
-        SDL_Delay(100);
+        SDL_Delay(10);
     }
 }
